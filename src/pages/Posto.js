@@ -2,10 +2,14 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ScrollView } from 'react-native';
 
-import Pesquisa from './MeuComponente/Pesquisa';
-import Card from './MeuComponente/Card';
+import '../utils/i18n'
+import { useTranslation } from 'react-i18next'
+
+import Pesquisa from '../../MeuComponente/Pesquisa';
+import Card from '../../MeuComponente/Card';
 
 export default function Posto() {
+  const {t, i18n} = useTranslation();
   return (
       <View style={styles.container}>
               <StatusBar backgroundColor='#e0e0e0' style="auto" />

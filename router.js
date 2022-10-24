@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, Text} from 'react-native';
+import { Image, Text, View, StyleSheet} from 'react-native';
 
-import Posto from './Posto';
-import Salvo from './salvo';
-import Config from './Config';
-import Local from './Local';
-import Mais from './Mais';
+import Posto from './src/pages/Posto';
+import Salvo from './src/pages/salvo';
+import Config from './src/pages/Configuracao/Config';
+import Local from './src/pages/Local';
+import Mais from "./src/pages/Mais";
 
 
 const Tab = createBottomTabNavigator();
@@ -33,16 +33,15 @@ export default function Routes(){
                 headerShown: false,
                 tabBarIcon: ({color, size, focused}) => {
                     if (focused) {
-                        return <Image
-                        style={{height: 45,
-                            width: 45,}}
-                        source={require('./assets/local.png')}
-                        />
+                        return <View><Image
+                        style={styles.icon}
+                        source={require('./assets/local.png')}/>
+                        <View style={styles.line} />
+                        </View>
                     }
 
                     return <Image
-                    style={{height: 45,
-                        width: 45, opacity: 0.7}}
+                    style={styles.iconF}
                     source={require('./assets/local.png')}
                     />
                 }
@@ -56,16 +55,15 @@ export default function Routes(){
                 headerShown: false,
                 tabBarIcon: ({color, size, focused}) => {
                     if (focused) {
-                        return <Image
-                        style={{height: 45,
-                            width: 45,}}
-                        source={require('./assets/posto.png')}
-                        />
+                        return <View><Image
+                        style={styles.icon}
+                        source={require('./assets/posto.png')}/>
+                        <View style={styles.line} />
+                        </View>
                     }
 
                     return <Image
-                    style={{height: 45,
-                        width: 45, opacity: 0.7}}
+                    style={styles.iconF}
                     source={require('./assets/posto.png')}
                     />
                 }
@@ -79,16 +77,15 @@ export default function Routes(){
                 headerShown: false,
                 tabBarIcon: ({color, size, focused}) => {
                     if (focused) {
-                        return <Image
-                        style={{height: 45,
-                            width: 45,}}
-                        source={require('./assets/mais.png')}
-                        />
+                        return <View><Image
+                        style={styles.icon}
+                        source={require('./assets/mais.png')}/>
+                        <View style={styles.line} />
+                        </View>
                     }
 
                     return <Image
-                    style={{height: 45,
-                        width: 45, opacity: 0.7}}
+                    style={styles.iconF}
                     source={require('./assets/mais.png')}
                     />
                 }
@@ -103,16 +100,15 @@ export default function Routes(){
                 headerShown: false,
                 tabBarIcon: ({color, size, focused}) => {
                     if (focused) {
-                        return <Image
-                        style={{height: 45,
-                            width: 45,}}
-                        source={require('./assets/salvo.png')}
-                        />
+                        return <View><Image
+                        style={styles.icon}
+                        source={require('./assets/salvo.png')}/>
+                        <View style={styles.line} />
+                        </View>
                     }
 
                     return <Image
-                    style={{height: 45,
-                        width: 45, opacity: 0.8}}
+                    style={styles.iconF}
                     source={require('./assets/salvo.png')}
                     />
                 }
@@ -128,17 +124,15 @@ export default function Routes(){
                 tabBarStyle:{display: 'none',},
                 tabBarIcon: ({color, size, focused}) => {
                     if (focused) {
-                        return <Image
-                        style={{height: 45,
-                            width: 45,}}
-                        source={require('./assets/config.png')}
-                        />
-                        
+                        return <View><Image
+                        style={styles.icon}
+                        source={require('./assets/config.png')}/>
+                        <View style={styles.line} />
+                        </View>
                     }
 
                     return <Image
-                    style={{height: 45,
-                        width: 45, opacity: 0.7}}
+                    style={styles.iconF}
                     source={require('./assets/config.png')}
                     />
                 }
@@ -146,7 +140,26 @@ export default function Routes(){
             
             />
 
-
         </Tab.Navigator>
-    )
+    );
 }
+
+const styles = StyleSheet.create({
+    line:{ 
+        height: 1,
+        backgroundColor: '#ffff',
+        marginTop: 4,
+        width: 45,
+        
+    },
+    icon:{
+        height: 45,
+        width: 45,
+    },
+
+    iconF:{
+        height: 40,
+        width: 40, 
+        opacity: 0.7,
+    },
+});

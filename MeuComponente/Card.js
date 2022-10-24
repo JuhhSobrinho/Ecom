@@ -1,7 +1,12 @@
 import React, {useState} from 'react';
 import { StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
 
+import '../src/utils/i18n'
+import { useTranslation } from 'react-i18next'
+
 export default function Card(){
+
+  const {t, i18n} = useTranslation();
 
   const [defaultRating, setdefaultRating] = useState(0)
   const [maxRating, setmaxRating] = useState([1])
@@ -50,7 +55,7 @@ export default function Card(){
           <View style={styles.preco}>
               <Text style={styles.numb}>
               <Text style={styles.rs}>R$</Text>3,80</Text>
-              <Text style={styles.dias}>20 dias atrás</Text>
+              <Text style={styles.dias}>20 {t('dias atrás')}</Text>
                   <Image
                   style={styles.iconAvali}
                   source={require('../assets/avali.png')}

@@ -3,7 +3,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Modal, SafeAreaView, TouchableOpacity, Image, Alert} from 'react-native';
 import Slider from '@react-native-community/slider';
 
+import '../src/utils/i18n'
+import { useTranslation } from 'react-i18next'
+
 export default function ActionModal ({handleClose}) {
+
+  const {t, i18n} = useTranslation();
+
   const [range, setRange] = useState(2)
 
   const [defaultRating, setdefaultRating] = useState(2)
@@ -58,22 +64,22 @@ export default function ActionModal ({handleClose}) {
           source={require('../assets/back.png')}></Image> 
       </TouchableOpacity>
 
-      <Text style={{paddingTop: "10%", paddingRight: '30%',paddingBottom: '5%', paddingLeft: '20%',  fontWeight: "bold"}}>FILTROS</Text>
+      <Text style={{paddingTop: "10%", paddingRight: '30%',paddingBottom: '5%', paddingLeft: '20%',  fontWeight: "bold"}}>{t('FILTROS')} </Text>
     </View>
 
 
 
     <View style={{width: '100%', height: 2, backgroundColor: '#BFBFBF', margin: '5%'}}></View>
 
-    <Text style={{fontWeight: "bold"}}>Tipo de combustível</Text>
+    <Text style={{fontWeight: "bold"}}>{t('Tipo de combustível')} </Text>
           <View style={{paddingTop: '2%',flexDirection: "row"}}>  
-            <TouchableOpacity style={styles.gaso} color="#D9D9D9"><Text>Gasolina</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.gaso} color="#D9D9D9"><Text>Etanol</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.gaso} color="#D9D9D9"><Text>{t('Gasolina')} </Text></TouchableOpacity>
+            <TouchableOpacity style={styles.gaso} color="#D9D9D9"><Text>{t('Etanol')} </Text></TouchableOpacity>
           </View>
 
           <View style={{paddingTop: '2%',flexDirection: "row"}}>
-            <TouchableOpacity style={styles.gaso} color="#D9D9D9"><Text>Diesel</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.gaso} color="#D9D9D9"><Text>Agua</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.gaso} color="#D9D9D9"><Text>{t('Diesel')} </Text></TouchableOpacity>
+            <TouchableOpacity style={styles.gaso} color="#D9D9D9"><Text>{t('Agua')} </Text></TouchableOpacity>
           </View>
       
          
@@ -81,7 +87,7 @@ export default function ActionModal ({handleClose}) {
 
 
 
-      <Text style={{fontWeight: "bold"}}>Avaliação</Text>
+      <Text style={{fontWeight: "bold"}}>{t('Avaliação')} </Text>
       <CustomRatingBar/>
       <Text style={styles.textStyle}>
         {defaultRating + '/' + maxRating.length}
@@ -90,9 +96,9 @@ export default function ActionModal ({handleClose}) {
 
      <View style={{width: '100%', height: 2, backgroundColor: '#BFBFBF', margin: '5%' }}></View>
 
-     <Text style={{fontWeight: "bold"}}>Preço</Text>
+     <Text style={{fontWeight: "bold"}}>{t('Preço')} </Text>
      <View style={styles.sliderStyle}>
-      <Text style={{fontSize: 20, }}>R$0    até    R${Math.floor(range*100)}</Text>
+      <Text style={{fontSize: 20, }}>R$0    {t('até')}    R${Math.floor(range*100)}</Text>
       <Slider
         style={{width: 250, height: 40}}
         onValueChange={(value) => setRange(value)}

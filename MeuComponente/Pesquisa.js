@@ -2,7 +2,13 @@ import React, {useState} from 'react';
 import { StyleSheet, Image, Text, View, TouchableOpacity, TextInput, Alert, Modal } from 'react-native';
 import ActionModal from "./ModalFilter";
 
+import '../src/utils/i18n'
+import { useTranslation } from 'react-i18next'
+
 export default function Pesquisa(){
+
+  const {t, i18n} = useTranslation();
+
   const [visibleModal, setVisibleModal] = useState(false); 
   return(
     <View style={styles.pesquisa}>
@@ -10,7 +16,7 @@ export default function Pesquisa(){
 
 
     <View style={styles.menu}>
-      <TextInput style={styles.algumPosto} placeholder="Algum Posto Especifico" color='white' placeholderTextColor="#fff" >
+      <TextInput style={styles.algumPosto} placeholder={t('Algum Posto Especifico')} color='white' placeholderTextColor="#fff" >
       </TextInput>
 
       <TouchableOpacity
