@@ -23,10 +23,7 @@ export default function App() {
 
     <NavigationContainer>
                 <Stack.Navigator>
-                <Stack.Screen options={{headerShown: false,}} name="Posto" component={Routes} />
-                <Stack.Screen options={{headerShown: false,}} name="Salvo" component={Routes} />
-                <Stack.Screen options={{headerShown: false,}} name="Config" component={Routes} />
-                <Stack.Screen options={{headerShown: false,}} name="Local" component={Routes} />
+                <Stack.Screen options={{headerShown: false,}} name="Routes" component={Routes} />
 
                 <Stack.Screen options={{headerShown: false,}} name="Ajuda" component={Ajuda} />
                 <Stack.Screen options={{headerShown: false,}} name="Sobre" component={Sobre} />
